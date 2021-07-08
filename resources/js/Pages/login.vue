@@ -21,7 +21,7 @@
         </md-field>
       </div>
       <div class="flex items-center justify-center mb-8">
-        <md-button class="md-raised md-primary">Login</md-button>
+        <md-button class="md-raised md-primary" @click="login">Login</md-button>
       </div>
     </div>
   </div>
@@ -36,6 +36,30 @@ export default {
       },
       sending: false,
     };
+  },
+  methods: {
+    async login() {
+      this.sending = true;
+      await this.$axios
+        .post("/api/login", this.form)
+        .then((response) => {
+          if (response.data.loggedin) {
+            this.$eventHub.$emit("show-notification", "Login Sucess");
+            this.$router.push("/dashboard");
+          } else {
+            this.$eventHub.$emit(
+              "show-notification",
+              "Email/Password not found"
+            );
+          }
+        })
+        .catch((error) => {
+          this.$eventHub.$emit(
+            "show-notification",
+            "Something went Terribly wrong"
+          );
+        });
+    },
   },
 };
 </script>

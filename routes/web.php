@@ -14,4 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::pattern('url', '.*');
-Route::get('{url}', 'HomeController@SPA');
+Route::get('/', 'HomeController@SPA')->name('login');
+Route::get('{url}', 'HomeController@SPA')->middleware('auth');

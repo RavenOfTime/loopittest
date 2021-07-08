@@ -13,6 +13,7 @@ const Login = () => import(/* webpackChunkName: "login" */ "./Pages/login");
 const router = new VueRouter({
     routes: [
         { path: '/', component: Login },
+        { path: '/dashboard', component: Login },
     ],
     mode: 'history',
 })

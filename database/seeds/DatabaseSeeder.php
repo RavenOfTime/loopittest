@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\User;
+use App\Vehicles;
 
 class DatabaseSeeder extends Seeder
 {
@@ -11,6 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UserSeeder::class);
+        // $user = new User;
+        // $user->email = "test@test.com";
+        // $user->password = "test";
+        // $user->name = "test";
+        // $user->save();
+
+        // vehicle data
+        for ($i = 0; $i < 10; $i++) {
+            $a = new Vehicles();
+            $a->name = "Audi - " . $i;
+            $a->price = rand(10000, 100000);
+            $a->image = "/img/vehicle/vehicle" . $i . ".jpg";
+            $a->save();
+            # code...
+        }
     }
 }
