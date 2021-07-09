@@ -18,4 +18,18 @@ class ExampleTest extends TestCase
 
         $response->assertStatus(200);
     }
+    public function can_visit_main_page()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+    public function can_see_vehicles()
+    {
+        $thread = factory('Vehicles')->create();
+        $response = $this->get('/dashboard');
+
+        $response->assertSee($thread->name);
+        $response->assertStatus(200);
+    }
 }

@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::post('/api/login', 'LoginController@Login');
+Route::get('/api/getvehicles', 'VehiclesController@get')->middleware(['auth']);
 Route::pattern('url', '.*');
 Route::get('/', 'HomeController@SPA')->name('login');
-Route::get('{url}', 'HomeController@SPA')->middleware('auth');
+Route::get('/logout', 'LoginController@logout')->middleware(['auth']);
+Route::get('{url}', 'HomeController@SPA')->middleware(['auth']);

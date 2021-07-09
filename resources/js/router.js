@@ -7,13 +7,13 @@ Vue.use(VueRouter)
 
 
 const Login = () => import(/* webpackChunkName: "login" */ "./Pages/login");
-// const QuizPage = () => import(/* webpackChunkName: "dash" */ "./mock/Page/QuizPage");
+const Dashboard = () => import(/* webpackChunkName: "dash" */ "./Pages/dashboard");
 
 
 const router = new VueRouter({
     routes: [
         { path: '/', component: Login },
-        { path: '/dashboard', component: Login },
+        { path: '/dashboard', component: Dashboard },
     ],
     mode: 'history',
 })

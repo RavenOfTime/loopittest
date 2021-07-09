@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         // $user->save();
 
         // vehicle data
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 12; $i++) {
             $a = new Vehicles();
             $a->name = "Audi - " . $i;
             $a->price = rand(10000, 100000);

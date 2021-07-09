@@ -52,8 +52,11 @@ export default {
               "Email/Password not found"
             );
           }
+          this.sending = false;
         })
         .catch((error) => {
+          this.sending = false;
+
           this.$eventHub.$emit(
             "show-notification",
             "Something went Terribly wrong"

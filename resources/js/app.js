@@ -12,8 +12,14 @@ import axios from 'axios'
 import 'vue-material/dist/vue-material.min.css'
 import 'vue-material/dist/theme/default.css'
 
-Vue.prototype.$axios = axios
+
 Vue.prototype.$eventHub = new Vue();
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+axios.defaults.headers.common['X-CSRF-TOKEN'] = document
+    .querySelector('meta[name="csrf-token"]')
+    .getAttribute("content");
+Vue.prototype.$axios = axios
 //imports
 Vue.use(VueMaterial)
 Vue.use(Vuex)

@@ -17,4 +17,8 @@
     <div id="app"></div>
 </body>
 
+<script>
+    window.issloggedin = {{Auth::user()?true:false}};
+</script>
+
 </html>
